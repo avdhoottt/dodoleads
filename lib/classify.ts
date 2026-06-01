@@ -1,16 +1,22 @@
 import type { Priority } from './supabase'
 
+// Already thinking about money — highest intent for DodoPayments
 const HOT_KEYWORDS = [
   'stripe', 'paddle', 'lemonsqueezy', 'lemon squeezy', 'gumroad',
   'billing', 'payments', 'payment', 'subscription', 'monetize', 'monetization',
-  'credits', 'usage-based', 'usage based', 'saas', 'api',
-  'revenue', 'pricing', 'checkout', 'invoice', 'invoicing',
+  'credits', 'usage-based', 'usage based', 'revenue', 'pricing',
+  'checkout', 'invoice', 'invoicing', 'paid', 'freemium', 'paywall',
+  'saas', 'mrr', 'arr', 'b2b',
 ]
 
+// Building a real product — every founder here eventually needs payments
 const WARM_KEYWORDS = [
-  'launch', 'users', 'waitlist', 'beta', 'growth',
-  'startup', 'product', 'tool', 'platform', 'software',
-  'app', 'dashboard', 'workflow', 'automation',
+  'launch', 'launched', 'shipped', 'built', 'released',
+  'users', 'waitlist', 'beta', 'early access', 'sign up',
+  'startup', 'product', 'tool', 'platform', 'service', 'software',
+  'app', 'api', 'dashboard', 'workflow', 'automation', 'integration',
+  'open source', 'self-hosted', 'cli', 'sdk', 'library',
+  'maker', 'indie', 'solopreneur', 'founder',
 ]
 
 export function classifyPriority(text: string): Priority {

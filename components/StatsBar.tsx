@@ -12,7 +12,8 @@ export function StatsBar({ leads }: Props) {
   const todayLeads = leads.filter((l) => l.launch_date === today || l.created_at.startsWith(today))
   const hotCount = leads.filter((l) => l.priority === 'hot').length
   const contactedCount = leads.filter((l) => l.contacted).length
-  const sourcesActive = new Set(leads.map((l) => l.source)).size
+  const TOTAL_SOURCES = 6
+  const sourcesWithData = new Set(leads.map((l) => l.source)).size
 
   const stats = [
     {
@@ -41,10 +42,10 @@ export function StatsBar({ leads }: Props) {
     },
     {
       icon: <Globe className="w-4 h-4" />,
-      label: 'Sources Active',
-      value: sourcesActive,
-      sub: 'of 6 sources',
-      color: 'text-zinc-300',
+      label: 'Sources',
+      value: `${sourcesWithData}/${TOTAL_SOURCES}`,
+      sub: sourcesWithData === TOTAL_SOURCES ? 'all sources scraped' : `${TOTAL_SOURCES - sourcesWithData} had no data`,
+      color: sourcesWithData === TOTAL_SOURCES ? 'text-[#C6FE1E]' : 'text-zinc-300',
       iconColor: 'text-blue-400',
     },
   ]
@@ -58,7 +59,7 @@ export function StatsBar({ leads }: Props) {
         >
           <div className={`${stat.iconColor} flex-shrink-0`}>{stat.icon}</div>
           <div>
-            <div className={`text-xl font-bold leading-none ${stat.color}`}>{stat.value}</div>
+            <div className={`font-display text-xl leading-none ${stat.color}`}>{stat.value}</div>
             <div className="text-zinc-500 text-xs mt-0.5">{stat.label}</div>
             <div className="text-zinc-600 text-[10px]">{stat.sub}</div>
           </div>

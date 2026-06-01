@@ -74,7 +74,7 @@ export default function Dashboard() {
             <div className="w-7 h-7 rounded-lg bg-[#C6FE1E] flex items-center justify-center">
               <span className="text-black font-black text-xs">D</span>
             </div>
-            <span className="font-bold text-white text-base tracking-tight">
+            <span className="font-display text-white text-base tracking-tight">
               Dodo <span className="text-[#C6FE1E]">Leads</span>
             </span>
           </div>
@@ -107,7 +107,7 @@ export default function Dashboard() {
         {/* Scrape History Panel */}
         {showHistory && (
           <div className="bg-[#111111] border border-zinc-800 rounded-xl p-4">
-            <h2 className="text-sm font-semibold text-zinc-300 mb-3">Recent Scrape Runs</h2>
+            <h2 className="text-sm text-zinc-300 mb-3">Recent Scrape Runs</h2>
             <ScrapeHistory runs={runs} />
           </div>
         )}
@@ -164,7 +164,7 @@ export default function Dashboard() {
             <div className="w-14 h-14 rounded-2xl bg-[#C6FE1E]/10 border border-[#C6FE1E]/20 flex items-center justify-center">
               <span className="text-2xl">🦤</span>
             </div>
-            <p className="text-zinc-400 font-medium">No leads found</p>
+            <p className="text-zinc-400">No leads found</p>
             <p className="text-zinc-600 text-sm text-center max-w-xs">
               Hit <span className="text-[#C6FE1E]">Refresh Leads</span> to scrape all sources, or adjust your filters.
             </p>

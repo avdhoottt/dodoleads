@@ -1,8 +1,17 @@
 import type { Metadata } from 'next'
-import { Geist } from 'next/font/google'
+import { Inter, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
-const geist = Geist({ variable: '--font-geist', subsets: ['latin'] })
+const inter = Inter({
+  variable: '--font-inter',
+  subsets: ['latin'],
+})
+
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-display',
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+})
 
 export const metadata: Metadata = {
   title: 'Dodo Leads',
@@ -11,8 +20,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geist.variable} dark`}>
-      <body className="min-h-screen bg-[#09090B] text-white antialiased">{children}</body>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} dark`}>
+      <body className="min-h-screen bg-[#09090B] text-white antialiased">
+        {children}
+      </body>
     </html>
   )
 }
